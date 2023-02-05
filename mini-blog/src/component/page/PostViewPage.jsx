@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { BrowserRouter, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import CommentList from "../list/CommentList";
 import TextInput from "../ui/TextInput";
@@ -48,6 +48,9 @@ const CommentLabel = styled.p`
   font-weight: 500;
 `;
 
+// props로 제공 받은 글의 Id를 이용해서 전체 데이터에서 글에 해당되는 Id를 찾는다
+// 찾은 글의 제목, 내용, 댓글을 화면에 렌더링
+// 그 아래에 TextInput, Button 컴포넌트를 이용해 댓글을 작성할 수 있도록 UI를 제공한다
 function PostViewPage(props) {
   const navigate = useNavigate();
   const { postId } = useParams();
@@ -79,6 +82,12 @@ function PostViewPage(props) {
           height={40}
           value={comment}
           onChange={(event) => {
+            setComment(event.target.value);
+          }}
+        />
+        <Button
+          title="댓글 작성하기"
+          onClick={() => {
             navigate("/");
           }}
         />
@@ -88,3 +97,13 @@ function PostViewPage(props) {
 }
 
 export default PostViewPage;
+
+//------------
+
+<BrowserRouter>
+  <Routes>
+    <Route index element={<MainPage />} />
+    <Route path="places" element={<PlacePage />} />
+    <Route path="games" element={<GamePage />} />
+  </Routes>
+</BrowserRouter>;
