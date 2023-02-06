@@ -29,6 +29,7 @@ const Container = styled.div`
 `;
 
 // MainPage는 지금까지 만들어 놓은 컴포넌트들을 모아 놓은 용도
+
 function MainPage(props) {
   const navigate = useNavigate();
 
