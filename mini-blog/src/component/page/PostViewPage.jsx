@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import CommentList from "../list/CommentList";
 import TextInput from "../ui/TextInput";
@@ -7,12 +7,12 @@ import Button from "../ui/Button";
 import data from "../../data.json";
 
 const Wrapper = styled.div`
-    padding: 16px
-    width: calc(100% - 32px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  padding: 16px;
+  width: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Container = styled.div`
@@ -39,7 +39,7 @@ const TitleText = styled.p`
 
 const ContentText = styled.p`
   font-size: 20px;
-  lin-height: 32px;
+  line-height: 32px;
   white-space: pre-wrap;
 `;
 
@@ -56,7 +56,7 @@ function PostViewPage(props) {
   const { postId } = useParams();
 
   const post = data.find((item) => {
-    return item.id === postId;
+    return item.id == postId;
   });
 
   const [comment, setComment] = useState("");

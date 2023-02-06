@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import CommentListItem from "./CommentsListItem";
+import CommentListItem from "./CommentListItem";
 
+// & > * 해당 부모 element의 모든 자식들에세 스타일을 적용 하기 위한 selector
+// & 는 Sass에서 제공하는 parent selector를 의미
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  & < * {
+  & > * {
     :not(:last-child) {
       margin-bottom: 16px;
     }
