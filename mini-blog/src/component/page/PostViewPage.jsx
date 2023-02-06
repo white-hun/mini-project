@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CommentList from "../list/CommentList";
 import TextInput from "../ui/TextInput";
 import Button from "../ui/Button";
-import date from "../../data.json";
+import data from "../../data.json";
 
 const Wrapper = styled.div`
     padding: 16px
@@ -56,7 +56,7 @@ function PostViewPage(props) {
   const { postId } = useParams();
 
   const post = data.find((item) => {
-    return item.id == postId;
+    return item.id === postId;
   });
 
   const [comment, setComment] = useState("");
@@ -97,13 +97,3 @@ function PostViewPage(props) {
 }
 
 export default PostViewPage;
-
-//------------
-
-<BrowserRouter>
-  <Routes>
-    <Route index element={<MainPage />} />
-    <Route path="places" element={<PlacePage />} />
-    <Route path="games" element={<GamePage />} />
-  </Routes>
-</BrowserRouter>;
